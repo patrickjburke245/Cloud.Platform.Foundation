@@ -1,15 +1,13 @@
 terraform {
-  backend "azurerm" {}
   required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~> 3.69.0"
+    google = {
+      source = "hashicorp/google"
+      version = "5.8.0"
     }
   }
-
-  required_version = ">= 1.5.5"
 }
 
-provider "azurerm" {
-  features {}
+provider "google" {
+  project     = "project-01-400200"
+  region      = "us-central1"
 }
