@@ -58,6 +58,14 @@ stages:
             workingDirectory: $(infrastructure_workingdirectory)
             failOnStderr: true
 
+          - script: |
+              apt update && apt install -y curl
+              curl -sfL 'https://raw.githubusercontent.com/orcasecurity/orca-cli/main/install.sh' | bash #download installation script
+              orca-cli -p "${PROJECT_KEY}" iac scan --path "$(infrastructure_workingdirectory)/tfplan"  # Run Orca CLI scan against your IaC code
+            displayName: Orca IaC Security scan
+            env:
+             ORCA_SECURITY_API_TOKEN: $(ORCA_SECURITY_API_TOKEN)
+
           - bash: |
               terraform apply -input=false -auto-approve tfplan
               terraform output -json > output.${{ parameters.environment }}.json
