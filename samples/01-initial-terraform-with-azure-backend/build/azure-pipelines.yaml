@@ -18,7 +18,7 @@ variables:
   - name: tf_version
     value: '1.5.5'
   - name: tf_backend_storage_account_key
-    value: 9CJR3qecXQlGLermJGIwGTvZ7YjBuukdpb3q8pDVPm1NdtygDzs5NFsnk96Xauwav177jvhTHBGg+AStafDc+Q==
+    value: '9CJR3qecXQlGLermJGIwGTvZ7YjBuukdpb3q8pDVPm1NdtygDzs5NFsnk96Xauwav177jvhTHBGg+AStafDc+Q=='
 
 stages:
   - template: main.yaml
